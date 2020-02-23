@@ -4,6 +4,10 @@
 3. 実用
 4. クローラーの継続運用
 
+## 目標
+pythonで簡単なクローリング・スクレイピングを実装できるようになるのが目標。  
+また、発展的な内容も軽く紹介し、応用タスクに直面したときに何をするべきか迷わないようにする。
+
 # １：基礎知識
 <dl>
   <dt>・クローリング</dt>
@@ -67,6 +71,16 @@ Pythonには簡単な記述でスクレイピング・クローリングでき�
 4. クローラーの作成(`test.py`)
 <br>
 
+## 補足
+スクレイピング後のデータを格納するDBは以下のコマンドで作る。
+
+    create table qiita_trends(
+        date date primary key,
+        article_id char(20),
+        title text,
+        author_id varchar(20),
+    );
+
 ## クローラー作成の際の注意事項
 ### クローリングの条件
 * robots.txtやmetaタグで許可されていないコンテンツはクロールしない。
@@ -105,7 +119,7 @@ MeCab, janomeなどで形態素解析。
 TwitterからはREST API、AmazonからはProduct Advertisiong APIが利用可能。
 
 ## javascriptの解釈&ブラウザの自動操作
-SPAなどhtmlエレメントをjavascriptで生成しているWebサイトは今までの方法ではクローリングは困難。  
+SPA(Single Page Application)などhtmlエレメントをjavascriptで生成しているWebサイトは今までの方法ではクローリングは困難。  
 従って、JavaScriptを解釈するクローラーが必要。  
 pythonではseleniumがよく用いられる。
 (https://selenium-python.readthedocs.io/getting-started.html)  

@@ -2,6 +2,8 @@
 
 # qiitaのトレンド1位の記事を記録するbot
 # https://qiita.com/
+# 各記事へのリンクは以下のformatに従っている。
+# https://qiita.com/{author_id}/items/{article_id}
 
 import json
 import datetime
@@ -23,7 +25,7 @@ def main():
         port=5432,
     )
     cur = conn.cursor()
-    cur.execute('INSERT INTO qiita_trend VALUES (%s, %s, %s, %s)', (values[0], values[1], values[2], values[3],))
+    cur.execute('INSERT INTO qiita_trends VALUES (%s, %s, %s, %s)', (values[0], values[1], values[2], values[3],))
     conn.commit()
     conn.close()
 
@@ -32,7 +34,7 @@ def scrape_qiita(r):
     tr_item = soup.select('[data-hyperapp-app="Trend"]')
     dic = tr_item[0]["data-hyperapp-props"]
     top_trend = json.loads(dic)['trend']['edges'][0]['node']
-    return [top_trend['uuid'], datetime.date.today(), top_trend['title'], top_trend['author']['urlName']]
+    return [datetime.date.today(), top_trend['uuid'], top_trend['title'], top_trend['author']['urlName']]
 
 if __name__=='__main__':
     main()
