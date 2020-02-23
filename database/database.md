@@ -21,7 +21,7 @@ MVCモデルにおけるシステムの模式図は下図のようになる。
 <br>
 
 ## RDBの構造  
-RDBは、データを行と列からなる2次元の表で管理。行は個々のデータを、列はデータを構成する要素を表す。  
+RDBは、データを行と列からなる2次元の表で管理する。行は個々のデータを、列はデータを構成する要素を表す。  
 ある表と別の表の間に関連性を持たせることで複雑なデータ構造を表現する。  
 次に、RDBの主な構成要素を示す。  
 <dl>
@@ -45,7 +45,7 @@ RDBは、データを行と列からなる2次元の表で管理。行は個々�
     <dt>・外部キー</dt>
     <dd>エンティティ間を関連付けるためのキー。</dd>
     <dt>・正規形</dt>
-    <dd>データがどれだけ管理しやすい形になっているか。舞台的な話は次章で。</dd>
+    <dd>データがどれだけ管理しやすい形になっているか。具体的な話は次章で。</dd>
 </dl>
 <br>
 
@@ -92,15 +92,23 @@ DB設計をするに当たって、注意すべき事柄をいくつか羅列す
 
 ## PostgreSQLの設定
 
+### for linux
+
     $sudo /etc/init.d/postgresql start
     $sudo passwd postgres
     $su - postgres
     $psql
     #CREATE ROLE {username} LOGIN CREATEDB PASSWORD {password}; 
     #CREATE DATABASE {dbname} OWNER {username};
-    #\du
     #\q
     $logout
+    $psql --user {username} --dbname {dbname}
+
+### for mac
+
+    $brew services start postgresql
+    $psql --dbname postgres
+    #CREATE DATABASE {dbname} OWNER {username};
     $psql --user {username} --dbname {dbname}
 
 
