@@ -93,8 +93,8 @@ DB設計をするに当たって、注意すべき事柄をいくつか羅列す
 ## PostgreSQLの設定
 
     $sudo /etc/init.d/postgresql start
-    $sudo passwd postgres  
-    $su - postgres  
+    $sudo passwd postgres
+    $su - postgres
     $psql
     #CREATE ROLE {username} LOGIN CREATEDB PASSWORD {password}; 
     #CREATE DATABASE {dbname} OWNER {username};

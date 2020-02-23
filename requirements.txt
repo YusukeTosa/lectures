@@ -1,5 +1,5 @@
 jupyterlab==1.2.6
 beautifulsoup4==4.8.2
 requests==2.22.0
-selenium==3.141.0
 psycopg2-binary==2.8.4
+CacheControl==0.12.6

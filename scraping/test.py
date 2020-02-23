@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 # qiitaのトレンド1位の記事を記録するbot
+# https://qiita.com/
 
 import json
 import datetime
@@ -14,7 +15,6 @@ def main():
     r = requests.get(url)
 
     values = scrape_qiita(r)
-
     conn = psycopg2.connect(
         database='yusuke', 
         user='yusuke', 
