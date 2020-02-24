@@ -108,6 +108,7 @@ DB設計をするに当たって、注意すべき事柄をいくつか羅列す
     $brew services start postgresql
     $psql --dbname postgres
     #CREATE DATABASE {dbname} OWNER {username};
+    #\q
     $psql --user {username} --dbname {dbname}
 
 
